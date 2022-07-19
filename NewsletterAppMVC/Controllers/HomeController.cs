@@ -16,6 +16,10 @@ namespace NewsletterAppMVC.Controllers
             {
                 return View("~/Views/Shared/Error.cshtml");
             }
+            else
+            {
+                return View("Success");
+            }
         }
 
         public ActionResult About()
