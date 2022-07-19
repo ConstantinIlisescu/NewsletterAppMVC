@@ -10,7 +10,7 @@ namespace NewsletterAppMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult SignUp(string firstName, string lastName, string emailAddress) //the model biding will bind the info passsed from the form, they have to have the exact name - not necesarly first letter uppercase
+        public ActionResult SignUp(string firstName, string lastName, string emailAddress) //the model biding will bind the info passsed from the form, the parameters have to have the exact name as the name in the forms- not necesarly first letter uppercase
         {
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress))
             {
@@ -18,6 +18,7 @@ namespace NewsletterAppMVC.Controllers
             }
             else
             {
+                string conectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Newsletter;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
                 return View("Success");
             }
         }
