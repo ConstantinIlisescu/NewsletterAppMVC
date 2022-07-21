@@ -51,7 +51,7 @@ namespace NewsletterAppMVC.Controllers
 
         public ActionResult Admin()
         {
-            string queryString = @"SELECT Id, FirstName, LastName, EmailAddress from SignUps";
+            string queryString = @"SELECT Id, FirstName, LastName, EmailAddress , SocialSecurityNumber from SignUps";
             List<NewsletterSignUp> signups = new List<NewsletterSignUp>();
 
             using (SqlConnection connection = new SqlConnection(conectionString))
@@ -68,6 +68,7 @@ namespace NewsletterAppMVC.Controllers
                     signup.FirstName = reader["FirstName"].ToString();
                     signup.LastName = reader["LastName"].ToString();
                     signup.EmailAddress = reader["EmailAddress"].ToString();
+                    signup.SocialSecurityNumber = reader["SocialSecurityNumber"].ToString();
 
                     signups.Add(signup);
                 }
