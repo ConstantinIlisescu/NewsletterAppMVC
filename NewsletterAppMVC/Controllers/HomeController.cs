@@ -6,6 +6,8 @@ namespace NewsletterAppMVC.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly string conectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Newsletter;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
         public ActionResult Index()
         {
             return View();
@@ -20,7 +22,6 @@ namespace NewsletterAppMVC.Controllers
             }
             else
             {
-                string conectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Newsletter;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
                 string queryString = @"INSERT INTO SignUps (FirstName, LastName, EmailAddress) VALUES 
                                                     (@FirstName, @LastName, @EmailAddress)";
