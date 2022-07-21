@@ -34,25 +34,6 @@ namespace NewsletterAppMVC.Controllers
                     db.SaveChanges();
                 }
 
-                //string queryString = @"INSERT INTO SignUps (FirstName, LastName, EmailAddress) VALUES 
-                //                                    (@FirstName, @LastName, @EmailAddress)";
-
-                //using (SqlConnection connection = new SqlConnection(conectionString))
-                //{
-                //    SqlCommand command = new SqlCommand(queryString, connection);
-                //    command.Parameters.Add("@FirstName", SqlDbType.VarChar);
-                //    command.Parameters.Add("@LastName", SqlDbType.VarChar);
-                //    command.Parameters.Add("@EmailAddress", SqlDbType.VarChar);
-
-                //    command.Parameters["@FirstName"].Value = firstName;
-                //    command.Parameters["@LastName"].Value = lastName;
-                //    command.Parameters["@EmailAddress"].Value = emailAddress;
-
-                //    connection.Open();
-                //    command.ExecuteNonQuery();
-                //    connection.Close();
-                //}
-
                 return View("Success");
             }
         }
