@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Data;
+using System.Data.SqlClient;
+using System.Web.Mvc;
 
 namespace NewsletterAppMVC.Controllers
 {
@@ -19,6 +21,26 @@ namespace NewsletterAppMVC.Controllers
             else
             {
                 string conectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Newsletter;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+                string queryString = @"INSERT INTO SignUps (FirstName, LastName, EmailAddress) VALUES 
+                                                    (@FirstName, @LastName, @EmailAddress)";
+
+                using (SqlConnection connection = new SqlConnection(conectionString))
+                {
+                    SqlCommand command = new SqlCommand(queryString, connection);
+                    command.Parameters.Add("FirstName", SqlDbType.VarChar);
+                    command.Parameters.Add("LastName", SqlDbType.VarChar);
+                    command.Parameters.Add("EmailAddress", SqlDbType.VarChar);
+
+                    command.Parameters["@FirstName"].Value = firstName;
+                    command.Parameters["@LastName"].Value = lastName;
+                    command.Parameters["@EmailAddress"].Value = emailAddress;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+
                 return View("Success");
             }
         }
