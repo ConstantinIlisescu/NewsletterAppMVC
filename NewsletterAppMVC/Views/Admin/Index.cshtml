@@ -8,19 +8,25 @@
         </div>
         @foreach (var signup in Model)
         {
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        @signup.FirstName
-                    </div>
-                    <div class="col">
-                        @signup.LastName
-                    </div>
-                    <div class="col">
-                        @signup.EmailAddress
+            using (Html.BeginForm("Unsubscribe", "Admin", FormMethod.Post))
+            {
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            @signup.FirstName
+                        </div>
+                        <div class="col">
+                            @signup.LastName
+                        </div>
+                        <div class="col">
+                            @signup.EmailAddress
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-danger ">Unsubscribe</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         }
     </div>
 </div>  
