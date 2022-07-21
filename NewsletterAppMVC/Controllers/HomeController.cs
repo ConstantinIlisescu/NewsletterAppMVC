@@ -48,6 +48,8 @@ namespace NewsletterAppMVC.Controllers
 
         public ActionResult Admin()
         {
+            string queryString = @"SELECT Id, FirstName, LastName, EmailAddress from SignUps";
+
             return View();
         }
 
