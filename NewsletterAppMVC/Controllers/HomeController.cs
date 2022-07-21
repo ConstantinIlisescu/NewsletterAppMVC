@@ -77,7 +77,17 @@ namespace NewsletterAppMVC.Controllers
 
             var signupVms = new List<SignupVm>();
 
-            return View(signups);
+            foreach (var signup in signups)
+            {
+                var signupVm = new SignupVm();
+                signupVm.FirstName = signup.FirstName;
+                signupVm.LastName = signup.LastName;
+                signupVm.EmailAddress = signup.EmailAddress;
+                signupVms.Add(signupVm);
+            }
+
+
+            return View(signupVms);
         }
 
     }
