@@ -18,6 +18,7 @@ namespace NewsletterAppMVC.Controllers
                 foreach (var signup in signups)
                 {
                     var signupVm = new SignupVm();
+                    signupVm.Id = signup.Id;
                     signupVm.FirstName = signup.FirstName;
                     signupVm.LastName = signup.LastName;
                     signupVm.EmailAddress = signup.EmailAddress;
