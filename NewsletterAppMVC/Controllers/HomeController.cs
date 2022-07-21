@@ -45,7 +45,10 @@ namespace NewsletterAppMVC.Controllers
             }
         }
 
-
+        public ActionResult Admin()
+        {
+            return View();
+        }
 
     }
 }
