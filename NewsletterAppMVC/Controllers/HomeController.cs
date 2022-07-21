@@ -67,7 +67,7 @@ namespace NewsletterAppMVC.Controllers
                     signup.Id = Convert.ToInt32(reader["Id"]);
                     signup.FirstName = reader["FirstName"].ToString();
                     signup.LastName = reader["LastName"].ToString();
-                    signup.EmailAddress = reader["EmmailAddress"].ToString();
+                    signup.EmailAddress = reader["EmailAddress"].ToString();
 
                     signups.Add(signup);
                 }
