@@ -28,9 +28,9 @@ namespace NewsletterAppMVC.Controllers
                 using (SqlConnection connection = new SqlConnection(conectionString))
                 {
                     SqlCommand command = new SqlCommand(queryString, connection);
-                    command.Parameters.Add("FirstName", SqlDbType.VarChar);
-                    command.Parameters.Add("LastName", SqlDbType.VarChar);
-                    command.Parameters.Add("EmailAddress", SqlDbType.VarChar);
+                    command.Parameters.Add("@FirstName", SqlDbType.VarChar);
+                    command.Parameters.Add("@LastName", SqlDbType.VarChar);
+                    command.Parameters.Add("@EmailAddress", SqlDbType.VarChar);
 
                     command.Parameters["@FirstName"].Value = firstName;
                     command.Parameters["@LastName"].Value = lastName;
