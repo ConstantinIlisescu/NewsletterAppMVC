@@ -1,5 +1,6 @@
 ﻿using NewsletterAppMVC.Models;
 using NewsletterAppMVC.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -24,9 +25,19 @@ namespace NewsletterAppMVC.Controllers
                     signupVm.EmailAddress = signup.EmailAddress;
                     signupVms.Add(signupVm);
                 }
-
-
                 return View(signupVms);
+            }
+        }
+
+        public ActionResult Unsubscribe(int Id)
+        {
+            using (NewsletterEntities db = new NewsletterEntities())
+            {
+                var signup = db.SignUps.Find(Id);
+                signup.Removed = DateTime.Now;
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
             }
         }
     }
