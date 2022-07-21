@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using NewsletterAppMVC.Models;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
 
@@ -49,6 +51,7 @@ namespace NewsletterAppMVC.Controllers
         public ActionResult Admin()
         {
             string queryString = @"SELECT Id, FirstName, LastName, EmailAddress from SignUps";
+            List<NewsletterSignUp> signups = new List<NewsletterSignUp>();
 
             return View();
         }
