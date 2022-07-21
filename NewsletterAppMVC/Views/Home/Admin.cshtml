@@ -6,15 +6,21 @@
         <div class="card-header text-center">
             <h5 class="m-0">Sign-ups</h5>
         </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col">
+            @foreach (var signup in Model)
+            {
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            @signup.FirstName
+                        </div>
+                        <div class="col">
+                            @signup.LastName
+                        </div>
+                        <div class="col">
+                            @signup.EmailAddress
+                        </div>
+                    </div>
                 </div>
-                <div class="col">
-                </div>
-                <div class="col">
-                </div>
-            </div>
-        </div>
+            }
     </div>
 </div>  
