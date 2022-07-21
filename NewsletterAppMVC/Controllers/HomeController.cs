@@ -1,4 +1,5 @@
 ﻿using NewsletterAppMVC.Models;
+using NewsletterAppMVC.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -73,6 +74,8 @@ namespace NewsletterAppMVC.Controllers
                     signups.Add(signup);
                 }
             }
+
+            var signupVms = new List<SignupVm>();
 
             return View(signups);
         }
