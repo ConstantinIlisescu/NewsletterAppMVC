@@ -1,6 +1,4 @@
-﻿using NewsletterAppMVC.ViewModels;
-using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace NewsletterAppMVC.Controllers
 {
@@ -37,27 +35,7 @@ namespace NewsletterAppMVC.Controllers
                 return View("Success");
             }
         }
-
-        public ActionResult Admin()
-        {
-            using (NewsletterEntities db = new NewsletterEntities()) // instanciate the object
-            {
-
-                var signups = db.SignUps;
-                var signupVms = new List<SignupVm>();
-                foreach (var signup in signups)
-                {
-                    var signupVm = new SignupVm();
-                    signupVm.FirstName = signup.FirstName;
-                    signupVm.LastName = signup.LastName;
-                    signupVm.EmailAddress = signup.EmailAddress;
-                    signupVms.Add(signupVm);
-                }
-
-
-                return View(signupVms);
-            }
-        }
-
     }
+
+}
 }
