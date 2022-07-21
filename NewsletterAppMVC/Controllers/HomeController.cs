@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using NewsletterAppMVC.Models;
+using System.Web.Mvc;
 
 namespace NewsletterAppMVC.Controllers
 {
